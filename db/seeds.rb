@@ -30,5 +30,3 @@ cmontano = Player.create(name: "Christian Montano", position: og, coach: adrian,
 jkeenoy = Player.create(name: "John Keenoy", position: center, coach: adrian, number: 64)
 kathleen = Player.create(name: "Kathleen", position: center, coach: adrian, number: 64)
 
- binding.pry
- 0
