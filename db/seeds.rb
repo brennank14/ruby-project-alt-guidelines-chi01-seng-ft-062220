@@ -5,6 +5,9 @@ Coach.destroy_all
 Position.destroy_all
 Player.destroy_all
 
+mike = Coach.creat(name: "Mike Tomlin")
+john = Coach.creat(name: "John Mitchell")
+john = Coach.creat(name: "Randy Fitchner")
 matt = Coach.create(name: "Matt Canada")
 jdaniel = Coach.create(name: "James Daniel")
 eddie = Coach.create(name: "Eddie Faulkner")
@@ -30,5 +33,5 @@ cmontano = Player.create(name: "Christian Montano", position: og, coach: adrian,
 jkeenoy = Player.create(name: "John Keenoy", position: center, coach: adrian, number: 64)
 kathleen = Player.create(name: "Kathleen", position: center, coach: adrian, number: 64)
 
- binding.pry
- 0
+binding.pry
+0
