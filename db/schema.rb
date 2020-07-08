@@ -12,18 +12,18 @@
 
 ActiveRecord::Schema.define(version: 3) do
 
-  create_table "Coaches", force: :cascade do |t|
+  create_table "coaches", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "Players", force: :cascade do |t|
+  create_table "players", force: :cascade do |t|
     t.string "name"
     t.integer "position_id"
     t.integer "coach_id"
     t.integer "number"
   end
 
-  create_table "Positions", force: :cascade do |t|
+  create_table "positions", force: :cascade do |t|
     t.string "name"
   end
 
