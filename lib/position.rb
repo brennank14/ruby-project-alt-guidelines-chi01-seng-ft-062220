@@ -47,20 +47,9 @@ class Position < ActiveRecord::Base
     end
 
     def self.position_options
-        puts "Options: \n
-        C: Center               OG: Offensive Guard \n
-        OT: Offensive Tackle    QB: Quarter Back \n
-        RB: Running Back        WR: Wide Receiver \n
-        TE: Tight End           S: Safety \n
-        K: Kicker               P: Punter \n
-        LB: Line Backer         FB: Full Back \n
-        DB: Defensive Back      DE: Defensive End \n
-        DT: Defensive Tackle    OL: Outside Linebacker \n
-        CB: Corner Back          NT: Nose Tackle \n
-        LS: Long Snapper        G: Guard"
+        puts "Options: \n"
+        "C: Center               OG: Offensive Guard \n"
+        position = Position.all.map{|position| "#{position.abbv}: #{position.name}"}
+        position.in_groups_of(2) {|position1, position2| puts "#{position1}                 #{position2} \n"}
     end
-
-
-
-
 end

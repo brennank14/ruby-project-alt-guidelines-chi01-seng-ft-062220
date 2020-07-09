@@ -14,31 +14,15 @@ class Coach < ActiveRecord::Base
     counter.max_by{|coaches, count| count}
   end
 
-
   def self.find_coach_by_player(player)
         player.map do |players|
              players.coach.name
         end
     end
 
-    def self.hire_coach(name)
-        self.create(name: name)
-    end
-
     def self.coach_options
-        puts "Options: \n
-        Mike Tomlin         John Mitchell\n
-        Randy Fitchner      Matt Canada\n
-        James Daniel        Eddie Faulkner\n
-        Ike Hilliard        Shaun Sarret\n
-        Adrian Klemm        Keith Butler\n
-        Teryl Austin        Tom Bradley\n
-        Karl Dunbar         Jerry Olsavsky\n
-        Danny Smith"
+        puts "Options: \n"
+        coaches = Coach.all.map {|coaches| coaches.name}
+        coaches.in_groups_of(2) {|coach1, coach2| puts "#{coach1}         #{coach2}\n"}
     end
-
 end
-
-
-
-
