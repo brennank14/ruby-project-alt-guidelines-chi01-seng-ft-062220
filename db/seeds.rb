@@ -33,7 +33,6 @@ Position.create(name: "Kicker", abbv: "K")
 Position.create(name: "Punter", abbv: "P")
 Position.create(name: "Line Backer", abbv: "LB")
 Position.create(name: "Full Backer", abbv: "FB")
-Position.create(name: "Offensive Guard", abbv: "OG")
 Position.create(name: "Defensive Back", abbv: "DB")
 Position.create(name: "Defensive End", abbv: "DE")
 Position.create(name: "Defensive Tackle", abbv: "DT")
@@ -42,6 +41,7 @@ Position.create(name: "Corner Back", abbv: "CB")
 Position.create(name: "Nose Tackle", abbv: "NT")
 Position.create(name: "Long Snapper", abbv: "LS")
 Position.create(name: "Guard", abbv: "G")
+
 
 def create_players
     PlayerScrape.roster.each do  |playerData|
@@ -52,6 +52,7 @@ def create_players
         new_player.save
     end
 end
+
 
 def coach_assignment(abbv_position)
     case abbv_position

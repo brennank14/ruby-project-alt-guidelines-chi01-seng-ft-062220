@@ -24,16 +24,42 @@ class Position < ActiveRecord::Base
         end
     end
 
-    def find_coach_sub_by_position
+    def self.find_coach_sub_by_position(array)
         # this method will list all coaches for a given position
-        players = Player.all.select do |player|
-            player.position == self
+        coaches = array.map do |player|
+            player.coach_id
         end
-        coaches = players.map do |player|
-            player.coach.name
+        coaches_names = coaches.map do |id|
+            Coach.find_by(id: id).name
         end
-        coaches.uniq
+        coaches_names.uniq
     end
+
+    def self.find_coach_sub_by_position2(array)
+        # this method will list all coaches for a given position
+        coaches = array.map do |position|
+            position.coach_id
+        end
+        coaches_names = coaches.map do |id|
+            Coach.find_by(id: id).name
+        end
+        coaches_names.uniq
+    end
+
+    def self.position_options
+        puts "Options: \n
+        C: Center               OG: Offensive Guard \n
+        OT: Offensive Tackle    QB: Quarter Back \n
+        RB: Running Back        WR: Wide Receiver \n
+        TE: Tight End           S: Safety \n
+        K: Kicker               P: Punter \n
+        LB: Line Backer         FB: Full Back \n
+        DB: Defensive Back      DE: Defensive End \n
+        DT: Defensive Tackle    OL: Outside Linebacker \n
+        CB: Corner Back          NT: Nose Tackle \n
+        LS: Long Snapper        G: Guard"
+    end
+
 
 
 

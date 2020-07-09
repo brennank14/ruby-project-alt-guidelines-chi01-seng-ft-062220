@@ -7,6 +7,11 @@ gem "sqlite3", '~> 1.3.6'
 gem "pry"
 gem "require_all"
 gem "faker"
+gem 'rake'
+gem 'awesome_print'
+gem 'spreadsheet'
+gem 'colorize'
+gem 'csv'
 gem "nokogiri"
 gem "httparty"
 gem "byebug"
