@@ -33,7 +33,6 @@ Position.create(name: "Kicker", abbv: "K")
 Position.create(name: "Punter", abbv: "P")
 Position.create(name: "Line Backer", abbv: "LB")
 Position.create(name: "Full Backer", abbv: "FB")
-Position.create(name: "Offensive Guard", abbv: "OG")
 Position.create(name: "Defensive Back", abbv: "DB")
 Position.create(name: "Defensive End", abbv: "DE")
 Position.create(name: "Defensive Tackle", abbv: "DT")
@@ -43,15 +42,6 @@ Position.create(name: "Nose Tackle", abbv: "NT")
 Position.create(name: "Long Snapper", abbv: "LS")
 Position.create(name: "Guard", abbv: "G")
 
-# jconner = Player.create(name:"James Conner", position: rb, coach: eddie, number: 30)
-# bigben = Player.create(name: "Ben Roethlisberger", position: qb, coach: matt, number: 7)
-# juju = Player.create(name: "Juju Smith-Schuster", position: wr, coach: ike, number: 19)
-# eebron = Player.create(name: "Eric Ebron", position: te, coach: jdaniel, number: 85)
-# zbanner = Player.create(name: "Zach Banner", position: ot, coach: shuan, number: 72)
-# cmontano = Player.create(name: "Christian Montano", position: og, coach: adrian, number: 62)
-# jkeenoy = Player.create(name: "John Keenoy", position: center, coach: adrian, number: 64)
-# kathleen = Player.create(name: "Kathleen", position: center, coach: adrian, number: 64)
-# kathleen1 = Player.create(name: "Kathleen", position: rb, coach: matt, number: 64)
 
 def create_players
     PlayerScrape.roster.each do  |playerData|
@@ -62,6 +52,7 @@ def create_players
         new_player.save
     end
 end
+
 
 def coach_assignment(abbv_position)
     case abbv_position

@@ -46,6 +46,21 @@ class Position < ActiveRecord::Base
         coaches_names.uniq
     end
 
+    def self.position_options
+        puts "Options: \n
+        C: Center               OG: Offensive Guard \n
+        OT: Offensive Tackle    QB: Quarter Back \n
+        RB: Running Back        WR: Wide Receiver \n
+        TE: Tight End           S: Safety \n
+        K: Kicker               P: Punter \n
+        LB: Line Backer         FB: Full Back \n
+        DB: Defensive Back      DE: Defensive End \n
+        DT: Defensive Tackle    OL: Outside Linebacker \n
+        CB: Corner Back          NT: Nose Tackle \n
+        LS: Long Snapper        G: Guard"
+    end
+
+
 
 
 end
