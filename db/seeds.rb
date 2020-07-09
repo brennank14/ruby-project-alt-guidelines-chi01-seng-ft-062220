@@ -56,11 +56,11 @@ end
 def coach_assignment(abbv_position)
     case abbv_position
         when "C"
-            "Shuan Sarret"
+            "Shaun Sarret"
         when "OG"
             "Adrian Klemm"
         when "OT"
-            "Shuan Sarret"
+            "Shaun Sarret"
         when "QB"
             "Matt Canada"
         when "RB"
@@ -80,7 +80,7 @@ def coach_assignment(abbv_position)
         when "FB"
             "Adrian Klemm"
         when "OG"
-            "Shuan Sarret"
+            "Shaun Sarret"
         when "DB"
             "Tom Bradley"
         when "DE"
@@ -96,7 +96,7 @@ def coach_assignment(abbv_position)
         when "LS"
             "Danny Smith"
         when "G"
-            "Shuan Sarret"
+            "Shaun Sarret"
         else
             "Mike Tomlin"
     end
