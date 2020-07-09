@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "positions", force: :cascade do |t|
     t.string "name"
+    t.string "abbv"
   end
 
 end
