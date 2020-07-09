@@ -1,5 +1,4 @@
 
-
 def greet
     puts "Welcome Steelers team member."
 end
@@ -16,21 +15,27 @@ def user_input
         option = gets.chomp
         if option == '1'
             puts "Name?"
-            name = gets.chomp
-            Coach.find_coach_by_player(Player.name)
+            input = gets.chomp
+            player = Player.where(name: input)
+            puts Coach.find_coach_by_player(player)
         end
 
-        if option == '2'
-            puts "Position?"
-            position = gets.chomp
-            position.find_sub
-        end
+        # if option == '2'
+        #     puts "Position?"
+        #      puts "Options: ..."
+        #     input = gets.chomp
+        #     position = Player.where(position: input).first
+        #     binding.pry
+        #     puts position.find_sub
+        # end
 
-        if option == '3'
-            puts "Position?"
-            position = gets.chomp
-            position.find_coach_sub_by_position
-        end
+        # if option == '3'
+        #     puts "Position?"
+        #       puts "Options: ..."
+        #     input = gets.chomp
+        #     coach = Player.where(position: input)
+        #     puts find_coach_sub_by_position(coach)
+        # end
 
     end
 
@@ -40,21 +45,26 @@ def user_input
         puts "2. Find all players for a certain position"
         puts "3. Find who coaches the most players"
 
-        option = gets
+        option = gets.chomp
         if option == '1'
             puts "Position?"
-            position = gets.chomp
-            position.find_coach_sub_by_position
+            puts "Options: ..."
+            input = gets.chomp
+            position = Position.where(name: input).first
+            puts position.find_coach_sub_by_position
         end
 
         if option == '2'
             puts "Position?"
-            position = gets.chomp
-            position.find_sub
+            puts "Options: ..."
+            input = gets.chomp
+            position = Position.where(name: input).first
+            puts position.find_sub
         end
 
         if option == '3'
-            Coach.has_most_players
+            coach = Coach.has_most_players.first
+            puts coach.name
         end
 
     end

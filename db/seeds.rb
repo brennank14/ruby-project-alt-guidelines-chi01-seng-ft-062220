@@ -29,4 +29,5 @@ zbanner = Player.create(name: "Zach Banner", position: ot, coach: shuan, number:
 cmontano = Player.create(name: "Christian Montano", position: og, coach: adrian, number: 62)
 jkeenoy = Player.create(name: "John Keenoy", position: center, coach: adrian, number: 64)
 kathleen = Player.create(name: "Kathleen", position: center, coach: adrian, number: 64)
+kathleen1 = Player.create(name: "Kathleen", position: rb, coach: matt, number: 64)
 

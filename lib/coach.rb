@@ -15,16 +15,13 @@ class Coach < ActiveRecord::Base
   end
 
 
-  def self.find_coach_by_player(player_name)
-        # this method will list all coaches for a given player
-        players = Player.all.select do |player|
-            player == player_name
+  def self.find_coach_by_player(player)
+        player.map do |players|
+            puts players.coach.name
         end
-        coaches = players.map do |player|
-            player.coach.name
-        end
-        coaches.uniq
     end
+
+
 end
 
 
