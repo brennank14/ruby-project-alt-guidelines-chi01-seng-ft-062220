@@ -5,30 +5,101 @@ Coach.destroy_all
 Position.destroy_all
 Player.destroy_all
 
-matt = Coach.create(name: "Matt Canada")
-jdaniel = Coach.create(name: "James Daniel")
-eddie = Coach.create(name: "Eddie Faulkner")
-ike = Coach.create(name: "Ike Hilliard")
-shuan = Coach.create(name: "Shaun Sarret")
-adrian = Coach.create(name: "Adrian Klemm")
-randy = Coach.create(name: "Randy Fitchner")
+Coach.create(name: "Mike Tomlin")
+Coach.create(name: "John Mitchell")
+Coach.create(name: "Randy Fitchner")
+Coach.create(name: "Matt Canada")
+Coach.create(name: "James Daniel")
+Coach.create(name: "Eddie Faulkner")
+Coach.create(name: "Ike Hilliard")
+Coach.create(name: "Shaun Sarret")
+Coach.create(name: "Adrian Klemm")
+Coach.create(name: "Keith Butler")
+Coach.create(name: "Teryl Austin")
+Coach.create(name: "Tom Bradley")
+Coach.create(name: "Karl Dunbar")
+Coach.create(name: "Jerry Olsavsky")
+Coach.create(name: "Danny Smith")
 
-center = Position.create(name: "Center")
-og = Position.create(name: "Offensive Guard")
-ot = Position.create(name: "Offensive Tackle")
-qb = Position.create(name: "Quarterback")
-rb = Position.create(name: "Running Back")
-wr = Position.create(name: "Wide Receiver")
-te = Position.create(name: "Tight End")
+Position.create(name: "Center", abbv: "C")
+Position.create(name: "Offensive Guard", abbv: "OG")
+Position.create(name: "Offensive Tackle", abbv: "OT")
+Position.create(name: "Quarterback", abbv: "QB")
+Position.create(name: "Running Back", abbv: "RB")
+Position.create(name: "Wide Receiver", abbv: "WR")
+Position.create(name: "Tight End", abbv: "TE")
+Position.create(name: "Safety", abbv: "S")
+Position.create(name: "Kicker", abbv: "K")
+Position.create(name: "Punter", abbv: "P")
+Position.create(name: "Line Backer", abbv: "LB")
+Position.create(name: "Full Backer", abbv: "FB")
+Position.create(name: "Offensive Guard", abbv: "OG")
+Position.create(name: "Defensive Back", abbv: "DB")
+Position.create(name: "Defensive End", abbv: "DE")
+Position.create(name: "Defensive Tackle", abbv: "DT")
+Position.create(name: "Outside Linebacker", abbv: "OL")
+Position.create(name: "Corner Back", abbv: "CB")
+Position.create(name: "Nose Tackle", abbv: "NT")
+Position.create(name: "Long Snapper", abbv: "LS")
+Position.create(name: "Guard", abbv: "G")
 
-jconner = Player.create(name:"James Conner", position: rb, coach: eddie, number: 30)
-bigben = Player.create(name: "Ben Roethlisberger", position: qb, coach: matt, number: 7)
-juju = Player.create(name: "Juju Smith-Schuster", position: wr, coach: ike, number: 19)
-eebron = Player.create(name: "Eric Ebron", position: te, coach: jdaniel, number: 85)
-zbanner = Player.create(name: "Zach Banner", position: ot, coach: shuan, number: 72)
-cmontano = Player.create(name: "Christian Montano", position: og, coach: adrian, number: 62)
-jkeenoy = Player.create(name: "John Keenoy", position: center, coach: adrian, number: 64)
-kathleen = Player.create(name: "Kathleen", position: center, coach: adrian, number: 64)
+def create_players
+    PlayerScrape.roster.each do  |playerData|
+        new_player = Player.create(name: playerData[:name], number: playerData[:number], age: playerData[:age])
+        dataAbbv = playerData[:position].include?("/") ? playerData[:position].split('/')[0] : playerData[:position]
+        new_player.position = Position.where(abbv: dataAbbv).first
+        new_player.coach = Coach.find_by(name: coach_assignment(dataAbbv))
+        new_player.save
+    end
+end
 
- binding.pry
- 0
+def coach_assignment(abbv_position)
+    case abbv_position
+        when "C"
+            "Shuan Sarret"
+        when "OG"
+            "Adrian Klemm"
+        when "OT"
+            "Shuan Sarret"
+        when "QB"
+            "Matt Canada"
+        when "RB"
+            "Eddie Faulkner"
+        when "WR"
+            "Ike Hilliard"
+        when "TE"
+            "James Daniel"
+        when "S"
+            "Tom Bradley"
+        when "K"
+            "Danny Smith"
+        when "P"
+            "Danny Smith"
+        when "LB"
+            "Jerry Olsavsky"
+        when "FB"
+            "Adrian Klemm"
+        when "OG"
+            "Shuan Sarret"
+        when "DB"
+            "Tom Bradley"
+        when "DE"
+            "Karl Dunbar"
+        when "DT"
+            "Karl Dunbar"
+        when "OL"
+            "Adrian Klemm"
+        when "CB"
+            "Tom Bradley"
+        when "NT"
+            "Tom Bradley"
+        when "LS"
+            "Danny Smith"
+        when "G"
+            "Shuan Sarret"
+        else
+            "Mike Tomlin"
+    end
+end
+
+create_players()
