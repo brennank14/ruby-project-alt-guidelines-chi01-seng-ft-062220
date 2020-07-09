@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.integer "position_id"
     t.integer "coach_id"
     t.integer "number"
+    t.integer "age"
   end
 
   create_table "positions", force: :cascade do |t|
