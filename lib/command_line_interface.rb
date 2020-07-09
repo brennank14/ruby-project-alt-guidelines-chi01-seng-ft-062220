@@ -14,28 +14,28 @@ def user_input
 
         option = gets.chomp
         if option == '1'
-            puts "Name?"
+            puts "Name? (first and last)"
             input = gets.chomp
             player = Player.where(name: input)
             puts Coach.find_coach_by_player(player)
         end
 
-        # if option == '2'
-        #     puts "Position?"
-        #      puts "Options: ..."
-        #     input = gets.chomp
-        #     position = Player.where(position: input).first
-        #     binding.pry
-        #     puts position.find_sub
-        # end
+        if option == '2'
+            puts "Position Abbreviation?"
+             puts "Options: ..."
+            input = gets.chomp
+            position = Position.where(abbv: input).first
+            puts position.find_sub
+        end
 
-        # if option == '3'
-        #     puts "Position?"
-        #       puts "Options: ..."
-        #     input = gets.chomp
-        #     coach = Player.where(position: input)
-        #     puts find_coach_sub_by_position(coach)
-        # end
+        if option == '3'
+            puts "Position Abbreviation?"
+              puts "Options: ..."
+            input = gets.chomp
+            position = Position.where(abbv: input).first
+            player_list = Player.where(position: position)
+            puts Position.find_coach_sub_by_position(player_list)
+        end
 
     end
 
@@ -50,21 +50,23 @@ def user_input
             puts "Position?"
             puts "Options: ..."
             input = gets.chomp
-            position = Position.where(name: input).first
-            puts position.find_coach_sub_by_position
+            position = Position.where(abbv: input).first
+            player_list = Player.where(position: position)
+            puts Position.find_coach_sub_by_position(player_list)
         end
 
         if option == '2'
-            puts "Position?"
-            puts "Options: ..."
+            puts "Position Abbreviation?"
+             puts "Options: ..."
             input = gets.chomp
-            position = Position.where(name: input).first
+            position = Position.where(abbv: input).first
             puts position.find_sub
         end
 
         if option == '3'
             coach = Coach.has_most_players.first
             puts coach.name
+            binding.pry
         end
 
     end

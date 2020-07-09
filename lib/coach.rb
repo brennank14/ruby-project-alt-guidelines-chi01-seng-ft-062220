@@ -10,7 +10,9 @@ class Coach < ActiveRecord::Base
     counter = Hash.new(0)
     coaches.each do |count|
         counter[count] +=1
+       
     end
+    binding.pry
     counter.max_by{|coaches, count| count}
   end
 

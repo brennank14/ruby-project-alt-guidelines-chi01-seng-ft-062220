@@ -5,6 +5,7 @@ class CreatePlayer < ActiveRecord::Migration[5.2]
             t.integer :position_id
             t.integer :coach_id
             t.integer :number
+            t.integer :age
         end
     end
 end

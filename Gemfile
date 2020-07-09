@@ -12,3 +12,6 @@ gem 'awesome_print'
 gem 'spreadsheet'
 gem 'colorize'
 gem 'csv'
+gem "nokogiri"
+gem "httparty"
+gem "byebug"
