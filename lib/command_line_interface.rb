@@ -138,8 +138,7 @@ def user_input
             input2 = gets.chomp.upcase
             player = Player.find_by(name: input)
             position = Position.find_by(abbv: input2)
-            player.position = position
-            player.save
+            player.update(position: position)
             puts "#{input}'s position has been changed to #{input2}".green
         end
 
@@ -151,8 +150,7 @@ def user_input
             input2 = gets.chomp
             player = Player.find_by(name: input)
             coach = Coach.find_by(name: input2)
-            player.coach = coach
-            player.save
+            player.update(coach: coach)
             puts "#{input}'s coach has been changed to #{input2}".green
         end
 
